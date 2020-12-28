@@ -1,14 +1,45 @@
-.first-page {
-}
-.first-page__header {
-}
-.first-page__main {
+.first-page__main { 
 }
 .first-page__fisrt-section {
+    height: 80vh;
+    display:flex;   
+    flex-direction: column;
+    align-items: center;    
+    justify-content: space-between;
 }
-.first-page__button-section {
+
+.all-button{
+    width: 50%;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    color: white;
+    display:block;
+    width:100px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 20px auto;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: background-color 0.1s linear;
+    -moz-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;   
+    background-color: rgb(102, 249, 66);
+    border: 1px solid rgb( 33, 126, 74 );   
 }
-.first-page__second-section {
+
+.all-button:hover {
+    background-color: rgb( 75, 183, 141 );
 }
-.first-page__footer {
+
+.first-page__add-button {
+    margin: 50px;
+}
+.first-page__disputes-button {
+}
+.first-page__archive-button {
 }

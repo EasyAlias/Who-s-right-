@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
-import './firstPage.css';
-import Header from './../../components/Header/header';
-// import ActualAndArchiveButton from './../../components/ActualAndArchiveButton';
-// import Footer from './../../components/Footer';
+import { Link } from 'react-router-dom';
+import './FirstPage.css';
 
-class FirstPage extends Component {
+class FirstPage extends Component{
+    state = {
+        id: 1,
+    }
+    
     render(){
-        return(
-            <div className="first-page"> 
-                <header className="first-page__header">
-                    <Header />
-                </header>
-                <main className="first-page__main">
-                    <section className="first-page__fisrt-section">
-                        <div className="first-page__button-section">
-                            {/* <ActualAndArchiveButton /> */}
-                        </div>
-                    </section>
-                    <section className="first-page__second-section">
-                        <div>
-                            // здесь будет код
-                        </div>
-                    </section>
-                </main>
-                <footer className="first-page__footer">
-                    {/* <Footer /> */}
-                </footer>
-            </div>
+        return( 
+            <main className="first-page__main">
+                <section className="first-page__fisrt-section">
+                    <Link 
+                    to={`/current_disputes/${this.state.id}`}className="first-page__add-button all-button"
+                    >Добавить спор
+                    </Link>
+                    <button 
+                    className="first-page__disputes-button all-button"
+                    >Текущие споры 
+                    </button>
+                    <button className="first-page__archive-button all-button">Перейти в архив</button>
+                </section>
+            </main>
         )
     }
 }
