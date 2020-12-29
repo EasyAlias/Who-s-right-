@@ -9,7 +9,15 @@ class ArchivePage extends Component{
     render(){
         return( 
             <section className="all-archive">
-                Тут в обозримом будущем будет архив споров.          
+                Тут в обозримом будущем будет архив споров.
+                <Link 
+                to={`/current_disputes/${this.state.id}`}className="all-button"
+                >Добавить спор
+                </Link>
+                <Link 
+                to={`/current_disputes`} className="all-button"
+                >Текущие споры 
+                </Link> 
             </section>
         )
     }

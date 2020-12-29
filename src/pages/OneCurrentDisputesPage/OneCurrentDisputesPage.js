@@ -18,10 +18,10 @@ class OneCurrentDisputesPage extends Component{
     
     render(){
         return( 
-            <section className="disputes">
-                <div>
+            <section className="section-disputes">
+                <div className="disputes">
                     <div>
-                        <input placeholder="Введите время"/>
+                        <input placeholder="Введите время (кол-во дней)"/>
                         <input placeholder="Введите тему спора"/>
                     </div>
                     <hr/>
@@ -37,7 +37,7 @@ class OneCurrentDisputesPage extends Component{
                         </div>
                     </div>
                     <hr/>
-                    <button>Сохранить спор</button>
+                    <button className="all-button">Сохранить спор</button>
                 </div>
                 <hr/>     
                 <ActualAndArchiveButton />           

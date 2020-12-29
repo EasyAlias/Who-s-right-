@@ -4,15 +4,7 @@ import './FirstPage.css';
 
 class FirstPage extends Component{
     state = {
-        dispute: [
-            {id: 1,
-            timeDispute: null,
-            nameUser1: "",
-            nameUser2: "",
-            questionDispure:"",
-            answerUser1: "",
-            answerUser2: "",
-        }]
+        
     }
     
     render(){
@@ -20,7 +12,7 @@ class FirstPage extends Component{
             <main className="first-page__main">
                 <section className="first-page__fisrt-section">
                     <Link 
-                    to={`/current_disputes/${this.state.dispute.id}`}className="first-page__add-button all-button"
+                    to={`/current_disputes/${this.state.id}`}className="first-page__add-button all-button"
                     >Добавить спор
                     </Link>
                     <Link 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './buttons.css';
 
 class ActualAndArchiveButton extends Component {
@@ -6,14 +7,18 @@ class ActualAndArchiveButton extends Component {
         return (
            <section>
                <div>
-                   <button>
+               <Link 
+                    to={`/current_disputes`}
+                    className="all-button">
                        Перейти к текущим спорам
-                   </button>
+                </Link>
                </div>
                <div>
-                   <button>
+               <Link 
+                    to={`/archive`}
+                    className="all-button">
                        Перейти в архив
-                   </button>
+                </Link>
                </div>
            </section>
         );
