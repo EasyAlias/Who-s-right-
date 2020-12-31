@@ -5,24 +5,31 @@ import './CurrentDisputesPage.css';
 
 class CurrentDisputesPage extends Component{
     state = {
-        
+        dispute: [],
     }
-    
+componentDidMount() {
+    fetch(`http://localhost:5000/dispute`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({ 
+                dispute: data,
+                })
+        })
+    }    
     render(){
         return( 
             <section className="all-disputes">
                 <ul>
-                  {this.props.dispute.map((el) => {
-                      return (
+                {this.state.dispute.map((el) => {
+                    return (
                         <Link to={`/dispute_page/${el.id}`}>
                         <li key={el.id}>
-                            {/* <img className="list__movie-item__poster" src={item.Poster} alt={item.Title} /> */}
                             <div>
                                 <h3>{el.questionDispure}</h3>
                             </div>
                         </li>
                     </Link>)
-                  })}  
+                })}  
                 </ul>
                 <Link 
                 to={`/current_disputes/${this.state.id}`}className="all-button"

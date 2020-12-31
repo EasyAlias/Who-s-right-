@@ -5,36 +5,38 @@ import './DisputePage.css';
 
 class DisputePage extends Component{
     state = {
-        dispute:[
-            {id: 1,
-            timeDispute: 32,
-            nameUser1: "Vasya",
-            nameUser2: "Petya",
-            questionDispure:"Egg or Chiken",
-            answerUser1: "Egg",
-            answerUser2: "Chiken",
-        }],
+        oneDispute:[],
     }
-    
+    componentDidMount() {
+        const {id} = this.props.match.params;
+        fetch(`http://localhost:5000/dispute/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            this.setState({ 
+                oneDispute: data,
+                })         
+            })
+    }    
     render(){
         return( 
             <section className="all-disputes">
                 <ul>
-                  {this.props.dispute.map((el) => {
-                      return (                        
-                        <li className="dispute-page_list" key={el.id}>
+                {/* {this.state.oneDispute.map((el) => { */}
+                    {/* return (                         */}
+                        <li className="dispute-page_list" key={this.state.id}>
                             <div>
-                                <h1>Time:{el.timeDispute}</h1>
-                                <h3>{el.questionDispure}</h3>
-                                <h5>{el.nameUser1}</h5>
-                                <p>{el.answerUser1}</p>
-                                <button>Я за {el.nameUser1}</button>
-                                <h5>{el.nameUser2}</h5>
-                                <p>{el.answerUser2}</p>
-                                <button>Я за {el.nameUser2}</button>
+                                <h1>Time:{this.state.timeDispute}</h1>
+                                <h3>{this.state.questionDispure}</h3>
+                                <h5>{this.state.nameUser1}</h5>
+                                <p>{this.state.answerUser1}</p>
+                                <button>Я за {this.state.nameUser1}</button>
+                                <h5>{this.state.nameUser2}</h5>
+                                <p>{this.state.answerUser2}</p>
+                                <button>Я за {this.state.nameUser2}</button>
                             </div>
                         </li>
-                  )})}
+                {/* ) */}
                 </ul>
                 <Link 
                 to={`/current_disputes/${this.state.id}`}className="all-button"
