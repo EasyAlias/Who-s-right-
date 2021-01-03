@@ -1,16 +1,6 @@
-  
 const initialState = {
-    dispute:[
-        {id: 1,
-        timeDispute: 32,
-        nameUser1: "Vasya",
-        nameUser2: "Petya",
-        questionDispure:"Egg or Chiken",
-        answerUser1: "Egg",
-        answerUser2: "Chiken",
-    }],
+    disputeId: 0,
     error: '',
-    
 }
 
 export default function reducer (state = initialState, action) {
@@ -30,10 +20,10 @@ export default function reducer (state = initialState, action) {
         //     const moviesList = [...myMoviesList];
         //     return {...state, moviesList};
         // }
-        // case 'CHANGE_TITLE_LIST': {
-        //     const titleList = action.payload;
-        //     return {...state, titleList};
-        // }
+        case 'ADD_NEW_ID': {
+            const disputeId = state.disputeId + 1;
+            return {...state, disputeId};
+        }
         default:
             return state;    
     }

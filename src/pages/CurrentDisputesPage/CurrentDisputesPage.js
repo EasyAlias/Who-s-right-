@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addNewId } from "./../../redux/action";
 import './CurrentDisputesPage.css';
 
 class CurrentDisputesPage extends Component{
@@ -32,6 +33,7 @@ componentDidMount() {
                 })}  
                 </ul>
                 <Link 
+                onClick ={() => this.props.dispatch(addNewId())}
                 to={`/current_disputes/${this.state.id}`}className="all-button"
                 >Добавить спор
                 </Link>
@@ -45,4 +47,4 @@ componentDidMount() {
     }
 }
 
-export default connect(state => ({dispute: state.dispute}))(CurrentDisputesPage);
+export default connect(state => ({disputeId: state.disputeId}))(CurrentDisputesPage);

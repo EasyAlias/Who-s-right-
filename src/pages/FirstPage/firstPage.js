@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addNewId } from "./../../redux/action";
 import './FirstPage.css';
 
 class FirstPage extends Component{
     state = {
         
     }
-    
+        
     render(){
         return( 
             <main className="first-page__main">
                 <section className="first-page__fisrt-section">
                     <Link 
-                    to={`/current_disputes/${this.state.id}`}className="first-page__add-button all-button"
+                    onClick ={() => this.props.dispatch(addNewId())}
+                    to={`/current_disputes/${this.props.disputeId}`}
+                    className="first-page__add-button all-button"
                     >Добавить спор
                     </Link>
                     <Link 
@@ -20,11 +24,12 @@ class FirstPage extends Component{
                     >Текущие споры 
                     </Link>
                     <Link 
-                    to={`/archive`} className="first-page__archive-button all-button">Перейти в архив</Link>
+                    to={`/archive`} className="first-page__archive-button all-button">
+                        Перейти в архив</Link>
                 </section>
             </main>
         )
     }
 }
 
-export default FirstPage;
+export default connect(state => ({disputeId: state.disputeId}))(FirstPage);

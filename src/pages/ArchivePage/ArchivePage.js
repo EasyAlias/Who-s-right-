@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addNewId } from "./../../redux/action";
 import './ArchivePage.css';
 
 class ArchivePage extends Component{
@@ -11,6 +13,7 @@ class ArchivePage extends Component{
             <section className="all-archive">
                 Тут в обозримом будущем будет архив споров.
                 <Link 
+                onClick={() => this.props.dispatch(addNewId())}
                 to={`/current_disputes/${this.state.id}`}className="all-button"
                 >Добавить спор
                 </Link>
@@ -23,4 +26,4 @@ class ArchivePage extends Component{
     }
 }
 
-export default ArchivePage;
+export default connect(state => ({disputeId: state.disputeId})) (ArchivePage);
