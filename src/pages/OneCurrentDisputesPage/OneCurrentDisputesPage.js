@@ -20,10 +20,15 @@ class OneCurrentDisputesPage extends Component{
         fetch('http://localhost:5000/dispute', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/x-www-form-urlencoded'
+                'Content-type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify(this.state)  
+            body: JSON.stringify(this.state)
             }) 
+        // let str = JSON.stringify(this.state)
+        // console.log(str);
+        // let json = JSON.parse(str)
+        // console.log(json);
+
         } 
         
     render(){

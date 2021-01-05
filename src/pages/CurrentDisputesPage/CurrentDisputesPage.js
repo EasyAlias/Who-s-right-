@@ -14,7 +14,7 @@ componentDidMount() {
         .then(data => {
             this.setState({ 
                 dispute: data,
-                })
+            })
         })
     }    
     render(){
