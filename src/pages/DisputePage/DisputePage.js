@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import './DisputePage.css';
 
 class DisputePage extends Component{
     state = {
-        oneDispute:[],
+        oneDispute: null,
     }
     componentDidMount() {
         const {id} = this.props.match.params;
@@ -19,6 +19,7 @@ class DisputePage extends Component{
             })
     }    
     render(){
+        console.log(this.state.oneDispute);
         const{id, timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2} = this.state.oneDispute;
         return( 
             <section className="all-disputes">
@@ -37,7 +38,7 @@ class DisputePage extends Component{
                     </li>
                 </ul>
                 <Link 
-                to={`/current_disputes/${this.state.id}`}className="all-button"
+                to={`/current_disputes/new_dispute`}className="all-button"
                 >Добавить спор
                 </Link>
                 <Link 
@@ -50,4 +51,6 @@ class DisputePage extends Component{
     }
 }
 
-export default connect(state => ({dispute: state.dispute}))(DisputePage);
+export default 
+// connect(state => ({dispute: state.dispute}))
+(DisputePage);

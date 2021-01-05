@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addNewId } from "./../../redux/action";
+// import { Link } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { addNewId } from "./../../redux/action";
 import ActualAndArchiveButton from './../../components/ActualAndArchiveButton/buttons';
 import './OneCurrentDisputesPage.css';
 
 class OneCurrentDisputesPage extends Component{
     state = {
-        id: this.props.disputeId,
         timeDispute: null,
         questionDispure:"",
         nameUser1: "",
@@ -20,15 +19,10 @@ class OneCurrentDisputesPage extends Component{
         fetch('http://localhost:5000/dispute', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/x-www-form-urlencoded',
+                'content-type': 'application/json',
             },
             body: JSON.stringify(this.state)
             }) 
-        // let str = JSON.stringify(this.state)
-        // console.log(str);
-        // let json = JSON.parse(str)
-        // console.log(json);
-
         } 
         
     render(){
@@ -67,6 +61,10 @@ class OneCurrentDisputesPage extends Component{
                     <hr/>
                     <button className="all-button"
                     onClick={this.clickHandler}>Сохранить спор</button>
+                    {/* <Link to={`/dispute_page/${this.props.disputeId}`}
+                    className="all-button"
+                    onClick={this.clickHandler}
+                    >Сохранить спор</Link> */}
                 </div>
                 <hr/>     
                 <ActualAndArchiveButton />           
@@ -75,4 +73,6 @@ class OneCurrentDisputesPage extends Component{
     }
 }
 
-export default connect(state => ({disputeId: state.disputeId})) (OneCurrentDisputesPage);
+export default 
+// connect(state => ({disputeId: state.disputeId}))
+ (OneCurrentDisputesPage);

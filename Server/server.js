@@ -1,18 +1,23 @@
-let dispute = [{
-    id: 1,
-    timeDispute: 32,
-    nameUser1: "Vasya",
-    nameUser2: "Petya",
-    questionDispure:"Egg or Chiken",
-    answerUser1: "Egg",
-    answerUser2: "Chiken",
-}];
+let dispute = [
+//     {
+//     id: 1,
+//     timeDispute: 32,
+//     nameUser1: "Vasya",
+//     nameUser2: "Petya",
+//     questionDispure:"Egg or Chiken",
+//     answerUser1: "Egg",
+//     answerUser2: "Chiken",
+// }
+];
 
 // const { json } = require('express');
 const express = require('express');
 const app = express();
+let cors = require('cors');
+app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
+let id = 1;
 
 app.all('/dispute/', function(req,res,next) {
     res.set("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -33,17 +38,20 @@ app.get('/dispute/:id', function(req, res) {
     }
 });
 app.post('/dispute',function(req, res) {
-    // let newDispute = JSON.parse(req.body)
-    // const disp = {
-    //     id: newDispute.id,
-    //     timeDispute: newDispute.timeDispute,
-    //     nameUser1: newDispute.nameUser1,
-    //     nameUser2: newDispute.nameUser2,
-    //     questionDispure: newDispute.questionDispure,
-    //     answerUser1: newDispute.answerUser1,
-    //     answerUser2: newDispute.answerUser2,
-    // }
-    dispute.push(req.body);
+    const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2} = req.body;
+    const disp = {
+        id: id,
+        timeDispute,
+        nameUser1,
+        nameUser2,
+        questionDispure,
+        answerUser1,
+        answerUser2        
+    }
+
+    id += 1;
+
+    dispute.push(disp);
     res.json(req.body);
 });
 app.put('/dispute/:id', function(req, res) {
