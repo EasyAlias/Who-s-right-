@@ -41,7 +41,7 @@ componentDidMount() {
                     to={`/archive`} 
                     className="first-page__archive-button all-button"
                     >Перейти в архив
-                    </Link>         
+                </Link>         
             </section>
         )
     }

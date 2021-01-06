@@ -16,9 +16,9 @@ class MainPage extends Component {
             <div className="main-page">                
                     <Header />
                     <Route path='/' exact component={FirstPage} />
-                    <Route path='/current_disputes/:id' exact component={OneCurrentDisputesPage} />
+                    <Route path='/current_disputes/new_dispute' exact component={OneCurrentDisputesPage} />
                     <Route path='/current_disputes' exact component={CurrentDisputesPage} />
-                    <Route path='/dispute_page/new_dispute' exact component={DisputePage} />
+                    <Route path='/dispute_page/:id' exact component={DisputePage} />
                     <Route path='/archive' exact component={ArchivePage} />
                     {/* <Route path='/archive/:id' exact component={OneArchivePage} /> */}
                     <Footer />
