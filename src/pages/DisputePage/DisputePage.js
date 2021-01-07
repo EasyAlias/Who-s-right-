@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
+import AddNewDispute from './../../components/AddNewDispute/buttons';
+import ArchiveDisputesButton from './../../components/ArchiveDisputesButton/buttons';
 import './DisputePage.css';
 
 
@@ -78,15 +80,8 @@ class DisputePage extends Component{
                         </div>
                     </li>
                 </ul>
-                <Link 
-                to={`/current_disputes/new_dispute`}className="all-button"
-                >Добавить спор
-                </Link>
-                <Link 
-                    to={`/archive`} 
-                    className="first-page__archive-button all-button"
-                    >Перейти в архив
-                    </Link>         
+                <AddNewDispute />      
+                <ArchiveDisputesButton />      
             </section>
         )
     }

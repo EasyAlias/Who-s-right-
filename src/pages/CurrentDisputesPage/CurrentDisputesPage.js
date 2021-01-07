@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { addNewId } from "./../../redux/action";
+import AddNewDispute from './../../components/AddNewDispute/buttons';
+import ArchiveDisputesButton from './../../components/ArchiveDisputesButton/buttons';
 import './CurrentDisputesPage.css';
 
 class CurrentDisputesPage extends Component{
@@ -32,16 +34,8 @@ componentDidMount() {
                     </Link>)
                 })}  
                 </ul>
-                <Link 
-                // onClick ={() => this.props.dispatch(addNewId())}
-                to={`/current_disputes/new_dispute`}className="all-button"
-                >Добавить спор
-                </Link>
-                <Link 
-                    to={`/archive`} 
-                    className="first-page__archive-button all-button"
-                    >Перейти в архив
-                </Link>         
+                <AddNewDispute />
+                <ArchiveDisputesButton />    
             </section>
         )
     }

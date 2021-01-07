@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./buttons.css";
 
-class ActualAndArchiveButton extends Component {
+class ActualDisputesButton extends Component {
     render() {
         return (
         <section>
@@ -11,14 +11,9 @@ class ActualAndArchiveButton extends Component {
                 Перейти к текущим спорам
             </Link>
         </div>
-        <div>
-            <Link to={`/archive`} className="all-button">
-                Перейти в архив
-            </Link>
-        </div>
         </section>
         );
     }
 }
 
-export default ActualAndArchiveButton;
+export default ActualDisputesButton;

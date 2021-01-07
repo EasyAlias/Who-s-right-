@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { addNewId } from "./../../redux/action";
-import ActualAndArchiveButton from './../../components/ActualAndArchiveButton/buttons';
+import ActualDisputesButton from '../../components/ActualDisputesButton/buttons';
+import ArchiveDisputesButton from '../../components/ArchiveDisputesButton/buttons';
 import './OneCurrentDisputesPage.css';
 
 class OneCurrentDisputesPage extends Component{
@@ -78,7 +79,8 @@ class OneCurrentDisputesPage extends Component{
                     disabled={this.state.disabled}>Сохранить спор</button>
                 </div>
                 <hr/>     
-                <ActualAndArchiveButton />           
+                <ActualDisputesButton />           
+                <ArchiveDisputesButton />           
             </section>
         )
     }
