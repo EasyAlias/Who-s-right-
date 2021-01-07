@@ -10,7 +10,6 @@ let dispute = [
 // }
 ];
 
-// const { json } = require('express');
 const express = require('express');
 const app = express();
 let cors = require('cors');
@@ -38,7 +37,7 @@ app.get('/dispute/:id', function(req, res) {
     }
 });
 app.post('/dispute',function(req, res) {
-    const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2} = req.body;
+    const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2} = req.body;
     const disp = {
         id: id,
         timeDispute,
@@ -46,7 +45,9 @@ app.post('/dispute',function(req, res) {
         nameUser2,
         questionDispure,
         answerUser1,
-        answerUser2        
+        answerUser2,
+        voteForUser1,
+        voteForUser2,      
     }
 
     id += 1;
@@ -55,27 +56,29 @@ app.post('/dispute',function(req, res) {
     res.json(req.body);
 });
 app.put('/dispute/:id', function(req, res) {
-    const idNumber = parseInt(req.body.id);
+    const idNumber = parseInt(req.params.id);
     const disputeIndex = dispute.findIndex(number => parseInt(number.id) === idNumber);
 
     if(disputeIndex !== -1) {
         const oldNumber = dispute[disputeIndex];
-        disputes[disputeIndex] = {...oldNumber, ...req.body};
+        let voteForUser1Number = dispute[disputeIndex].voteForUser1 + req.body.voteForUser1;
+        let voteForUser2Number = dispute[disputeIndex].voteForUser2 + req.body.voteForUser2;
+        dispute[disputeIndex] = {...oldNumber, voteForUser1: voteForUser1Number, voteForUser2: voteForUser2Number };
         res.json(dispute[disputeIndex]);
         } else {
             res.status(404).json();
         }
 })
-app.delete('/dispute/:id', function(req, res) {
-    const idDispute = parseInt(req.params.id);
-    const disputeIndex = dispute.findIndex(number => parseInt(number.id) === idPhonebook);
-    if(disputeIndex !== -1){
-        dispute = dispute.filter(el => el.id !== idDispute);
-        res.json(dispute);
-    } else {
-        res.status(404).json();
-    }
-})
+// app.delete('/dispute/:id', function(req, res) {
+//     const idDispute = parseInt(req.params.id);
+//     const disputeIndex = dispute.findIndex(number => parseInt(number.id) === idPhonebook);
+//     if(disputeIndex !== -1){
+//         dispute = dispute.filter(el => el.id !== idDispute);
+//         res.json(dispute);
+//     } else {
+//         res.status(404).json();
+//     }
+// })
 
 app.listen(5000, () => 
     console.log(`App are listening at port 5000`)

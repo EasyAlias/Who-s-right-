@@ -4,17 +4,12 @@ import { Link } from 'react-router-dom';
 // import { addNewId } from "./../../redux/action";
 import './FirstPage.css';
 
-class FirstPage extends Component{
-    state = {
-        
-    }
-        
+class FirstPage extends Component{  
     render(){
         return( 
             <main className="first-page__main">
                 <section className="first-page__fisrt-section">
                     <Link 
-                    // onClick ={() => this.props.dispatch(addNewId())}
                     to={`/current_disputes/new_dispute`}
                     className="first-page__add-button all-button"
                     >Добавить спор

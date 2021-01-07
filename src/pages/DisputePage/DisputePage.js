@@ -5,9 +5,12 @@ import './DisputePage.css';
 
 
 class DisputePage extends Component{
+
     state = {
         oneDispute: {},
+        disabled: false,
     }
+
     componentDidMount() {
         const {id} = this.props.match.params;
         fetch(`http://localhost:5000/dispute/${id}`)
@@ -19,18 +22,38 @@ class DisputePage extends Component{
             })
     }    
 
-    // clickHandlerUser1 = () => {
-    //     this.setState({
-    //         oneDispute: {},
-    //     })
-    //     fetch(`http://localhost:5000/dispute/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify(this.state)
-    //         }) 
-    // }
+    clickHandlerUser1 = () => {
+        this.setState({
+            disabled: true,
+        })
+        fetch(`http://localhost:5000/dispute/${this.state.oneDispute.id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                        voteForUser1: 1,
+                        voteForUser2: 0,
+                })
+            }) 
+    }
+
+    clickHandlerUser2 = () => {
+        this.setState({
+            disabled: true,
+        })
+        fetch(`http://localhost:5000/dispute/${this.state.oneDispute.id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                        voteForUser1: 0,
+                        voteForUser2: 1,
+                })
+            }) 
+    }
+
     render(){
         const{id, timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2} = this.state.oneDispute;
         return( 
@@ -42,10 +65,16 @@ class DisputePage extends Component{
                             <h3>{questionDispure}</h3>
                             <h5>{nameUser1}</h5>
                             <p>{answerUser1}</p>
-                            <button onClick ={this.clickHandlerUser1}>Я за {nameUser1}</button>
+                            <button 
+                            onClick={this.clickHandlerUser1}
+                            disabled={this.state.disabled}
+                            >Я за {nameUser1}</button>
                             <h5>{nameUser2}</h5>
                             <p>{answerUser2}</p>
-                            <button>Я за {nameUser2}</button>
+                            <button
+                            onClick ={this.clickHandlerUser2}
+                            disabled={this.state.disabled}
+                            >Я за {nameUser2}</button>
                         </div>
                     </li>
                 </ul>
