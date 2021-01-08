@@ -8,7 +8,7 @@ class ArchiveDisputesButton extends Component {
         <section>
         <div>
             <Link to={`/archive`} className="all-button">
-                Перейти в архив
+                Завершенные споры
             </Link>
         </div>
         </section>

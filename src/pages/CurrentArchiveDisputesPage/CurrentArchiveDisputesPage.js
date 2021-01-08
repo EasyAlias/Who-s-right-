@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { addNewId } from "./../../redux/action";
-import AddNewDispute from './../../components/AddNewDispute/buttons';
-import ArchiveDisputesButton from './../../components/ArchiveDisputesButton/buttons';
-import './CurrentDisputesPage.css';
+import AddNewDispute from '../../components/AddNewDispute/buttons';
+import ActualDisputesButton from '../../components/ActualDisputesButton/buttons';
+import './CurrentArchiveDisputesPage.css';
 
-class CurrentDisputesPage extends Component{
+class CurrentArchiveDisputesPage extends Component{
     state = {
         dispute: [],
     }
@@ -24,9 +24,9 @@ componentDidMount() {
             <section className="all-disputes">
                 <ul>
                 {this.state.dispute.map((el) => {
-                    if (el.timeDispute !== "0") {
+                    if (el.timeDispute === "0") {
                     return (
-                        <Link to={`/dispute_page/${el.id}`}>
+                        <Link to={`/archive/${el.id}`}>
                         <li key={el.id}>
                             <div>
                                 <h3>{el.questionDispure}</h3>
@@ -36,7 +36,7 @@ componentDidMount() {
                 })}  
                 </ul>
                 <AddNewDispute />
-                <ArchiveDisputesButton />    
+                <ActualDisputesButton />    
             </section>
         )
     }
@@ -44,4 +44,4 @@ componentDidMount() {
 
 export default 
 // connect(state => ({disputeId: state.disputeId}))
-(CurrentDisputesPage);
+(CurrentArchiveDisputesPage);

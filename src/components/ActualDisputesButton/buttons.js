@@ -8,7 +8,7 @@ class ActualDisputesButton extends Component {
         <section>
         <div>
             <Link to={`/current_disputes`} className="all-button">
-                Перейти к текущим спорам
+                Текущие споры
             </Link>
         </div>
         </section>

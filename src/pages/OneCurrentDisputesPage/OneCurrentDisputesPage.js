@@ -9,7 +9,7 @@ import './OneCurrentDisputesPage.css';
 class OneCurrentDisputesPage extends Component{
     state = {
         oneDispute:{
-            timeDispute: null,
+            timeDispute: "",
             questionDispure:"",
             nameUser1: "",
             nameUser2: "",
@@ -76,7 +76,13 @@ class OneCurrentDisputesPage extends Component{
                     <hr/>
                     <button className="all-button"
                     onClick={this.clickHandler}
-                    disabled={this.state.disabled}>Сохранить спор</button>
+                    disabled={!this.state.oneDispute.timeDispute || 
+                            !this.state.oneDispute.questionDispure || 
+                            !this.state.oneDispute.nameUser1 || 
+                            !this.state.oneDispute.nameUser2 || 
+                            !this.state.oneDispute.answerUser1 || 
+                            !this.state.oneDispute.answerUser2}
+                            >Сохранить спор</button>
                 </div>
                 <hr/>     
                 <ActualDisputesButton />           

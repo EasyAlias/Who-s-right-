@@ -10,13 +10,36 @@ let dispute = [
 // }
 ];
 
+// let finishedDispute = [];
+
 const express = require('express');
 const app = express();
 let cors = require('cors');
+let cronJob = require('cron').CronJob;
+const { CronJob } = require('cron');
 app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 let id = 1;
+
+// toMoveFinishedDispute = () => {
+//     dispute.map((el) => {
+//         if (el.timeDispute === "0"){
+//             finishedDispute = [{...el}];
+//         }
+//     })
+//     disputeWithout0 = dispute.filter(item => item.timeDispute !== "0");
+//     }
+
+getArchiveDispute = () => {
+    dispute.map((el) => {
+        let timeDispute = +(el.timeDispute)
+        new CronJob(`12 * * * * *`, function(){
+            console.log("Добрый день!")
+            // el.timeDispute === "0";
+        }, null, true, 'Russia/Moscow')
+    })
+}
 
 app.all('/dispute/', function(req,res,next) {
     res.set("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -27,6 +50,7 @@ app.all('/dispute/:id', function(req,res,next) {
     next();
 })
 app.get('/dispute', function(req, res) {
+    getArchiveDispute();
     res.json(dispute);
 });
 app.get('/dispute/:id', function(req, res) {
@@ -51,9 +75,9 @@ app.post('/dispute',function(req, res) {
     }
 
     id += 1;
-
+    
     dispute.push(disp);
-    res.json(req.body);
+    // toMoveFinishedDispute();
 });
 app.put('/dispute/:id', function(req, res) {
     const idNumber = parseInt(req.params.id);
@@ -79,6 +103,7 @@ app.put('/dispute/:id', function(req, res) {
 //         res.status(404).json();
 //     }
 // })
+
 
 app.listen(5000, () => 
     console.log(`App are listening at port 5000`)
