@@ -15,12 +15,14 @@ class MainPage extends Component {
         return(
             <div className="main-page">                
                     <Header />
-                    <Route path='/' exact component={FirstPage} />
-                    <Route path='/current_disputes/new_dispute' exact component={OneCurrentDisputesPage} />
-                    <Route path='/current_disputes' exact component={CurrentDisputesPage} />
-                    <Route path='/dispute_page/:id' exact component={DisputePage} />
-                    <Route path='/archive' exact component={CurrentArchiveDisputesPage} />
-                    <Route path='/archive/:id' exact component={ArchivePage} />
+                        <div className='route'>
+                            <Route path='/' exact component={FirstPage} />
+                            <Route path='/current_disputes/new_dispute' exact component={OneCurrentDisputesPage} />
+                            <Route path='/current_disputes' exact component={CurrentDisputesPage} />
+                            <Route path='/dispute_page/:id' exact component={DisputePage} />
+                            <Route path='/archive' exact component={CurrentArchiveDisputesPage} />
+                            <Route path='/archive/:id' exact component={ArchivePage} />
+                        </div>
                     <Footer />
             </div>
         )

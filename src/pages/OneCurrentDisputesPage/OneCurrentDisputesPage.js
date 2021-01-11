@@ -38,55 +38,55 @@ class OneCurrentDisputesPage extends Component{
         return( 
             <section className="section-disputes">
                 <div className="disputes">
-                    <div>
-                        <input 
-                        placeholder="Введите время (кол-во дней)"
+                    <p>Введите время (кол-во дней)</p>
+                    <input 
+                        className='input'
                         type="number"
                         onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, timeDispute:event.target.value}}))}
                         disabled={this.state.disabled}/>
-                        <input placeholder="Введите тему спора"
+                    <p>Введите тему спора</p>
+                    <input 
+                        className='input'
                         type="text"
                         onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, questionDispure:event.target.value}}))}
                         disabled={this.state.disabled}/>
-                    </div>
-                    <hr/>
-                    <div>
-                        <div>
-                            <input placeholder="Введите имя USER1"
-                            type="text"
-                            onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, nameUser1:event.target.value}}))}
-                            disabled={this.state.disabled}/>
-                            <input placeholder="Введите точку зрения USER1"
-                            type="text"
-                            onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, answerUser1:event.target.value}}))}
-                            disabled={this.state.disabled}/>
-                        </div>
-                    <hr/>
-                        <div>
-                            <input placeholder="Введите имя USER2"
-                            type="text"
-                            onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, nameUser2:event.target.value}}))}
-                            disabled={this.state.disabled}/>
-                            <input placeholder="Введите точку зрения USER2"
-                            type="text"
-                            onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, answerUser2:event.target.value}}))}
-                            disabled={this.state.disabled}/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <button className="all-button"
-                    onClick={this.clickHandler}
-                    disabled={!this.state.oneDispute.timeDispute || 
-                            !this.state.oneDispute.questionDispure || 
-                            !this.state.oneDispute.nameUser1 || 
-                            !this.state.oneDispute.nameUser2 || 
-                            !this.state.oneDispute.answerUser1 || 
-                            !this.state.oneDispute.answerUser2}
-                            >Сохранить спор</button>
-                </div>
-                <hr/>     
-                <ActualDisputesButton />           
-                <ArchiveDisputesButton />           
+                        <p>Введите имя первой стороны</p>
+                    <input 
+                        className='input'
+                        type="text"
+                        onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, nameUser1:event.target.value}}))}
+                        disabled={this.state.disabled}/>
+                        <p>Введите точку зрения первой стороны</p>
+                    <input 
+                        className='input'
+                        type="text"
+                        onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, answerUser1:event.target.value}}))}
+                        disabled={this.state.disabled}/>
+                        <p>Введите имя второй стороны</p>                
+                    <input 
+                        className='input'
+                        type="text"
+                        onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, nameUser2:event.target.value}}))}
+                        disabled={this.state.disabled}/>
+                        <p>Введите точку зрения второй стороны</p>
+                    <input
+                        className='input'
+                        type="text"
+                        onChange={((event) => this.setState({oneDispute:{...this.state.oneDispute, answerUser2:event.target.value}}))}
+                        disabled={this.state.disabled}/>
+                    <button 
+                        className="save-button"
+                        onClick={this.clickHandler}
+                        disabled={!this.state.oneDispute.timeDispute || 
+                                !this.state.oneDispute.questionDispure || 
+                                !this.state.oneDispute.nameUser1 || 
+                                !this.state.oneDispute.nameUser2 || 
+                                !this.state.oneDispute.answerUser1 || 
+                                !this.state.oneDispute.answerUser2}
+                                >Сохранить спор</button>
+                </div>    
+                    <ActualDisputesButton />           
+                    <ArchiveDisputesButton />           
             </section>
         )
     }

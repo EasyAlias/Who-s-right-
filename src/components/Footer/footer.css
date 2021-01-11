@@ -1,13 +1,14 @@
 .footer {
-    background: greenyellow;
-    position: absolute;
-    bottom: 0;
+    background: #264653;    
     width: 100%; 
+    height: 8vh;
+    position: fixed;
+    bottom: 0px;
 }
 
 .footer__title {
     font-family: 'Luckiest Guy', cursive;
-    color: red;
+    color: #E9C46A;
     font-size: 20px;
     margin: 0 auto;
     text-align: center;
