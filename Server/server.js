@@ -13,16 +13,16 @@ let id = 1;
 getArchiveDispute = () => {
     dispute.map((el, idx) => {
         let numTimeDispute = +(el.timeDispute)
-        new cronJob(`${numTimeDispute} * * * * *`, function(){
+        new cronJob(`* 1 * * * *`, function(){
             dispute[idx] = {...el, timeDispute: "0"};
         }, null, true, 'America/Los_Angeles')
     })
 }
 
 
+
 app.all('/dispute/', function(req,res,next) {
     res.set("Access-Control-Allow-Origin", "http://localhost:3000");
-    getArchiveDispute();
     next();
 })
 app.all('/dispute/:id', function(req,res,next) {
@@ -85,6 +85,7 @@ app.put('/dispute/:id', function(req, res) {
 // })
 
 
-app.listen(5000, () => 
+app.listen(5000, () => {
+    getArchiveDispute();
     console.log(`App are listening at port 5000`)
-);
+});

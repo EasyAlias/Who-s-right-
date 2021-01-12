@@ -1,0 +1,28 @@
+.all-disputes__title{
+    font-family: 'Luckiest Guy', cursive;
+    color: #E9C46A;
+    font-size: 20px;
+    text-align: center;
+    background: #264653; 
+    margin: 0px;
+}
+
+.all-disputes{
+    padding: 0px;
+}
+
+.all-disputes__link{
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+.all-dispute__one-el{
+    color: #7C5E13;
+    border: solid 1px #15514A;
+    background-color: #33C1B1;
+}
+
+.all-dispute__text{
+    text-align: center;
+}
