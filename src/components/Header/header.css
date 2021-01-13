@@ -1,15 +1,15 @@
 .header {
-    background: #264653;
-    width: 100%;
-    position: fixed;
-    top: 0px;
-    margin-bottom: 5px;
+  background: #3d0b37;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  padding: 15px 0;
 }
 
 .header__title {
-    font-family: 'Luckiest Guy', cursive;
-    color: #E9C46A;
-    font-size: 35px;
-    margin: 0 auto;    
-    text-align: center;   
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #c0d684;
+  font-size: 35px;
+  margin: 0 auto;
+  text-align: center;
 }

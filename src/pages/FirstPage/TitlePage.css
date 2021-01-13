@@ -1,0 +1,30 @@
+.first-page {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-page__button {
+  display: block;
+  background-color: #cbeaa6;
+  text-decoration: none;
+  color: #3d0b37;
+  border: 2px solid #3d0b37;
+  padding: 10px 15px;
+  font-size: 12px;
+  width: 180px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.first-page__button_large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  height: 180px;
+  margin-bottom: 50px;
+}
