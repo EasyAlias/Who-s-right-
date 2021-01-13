@@ -32,7 +32,7 @@ class ArchivePage extends Component{
                 <p className="archive-page__votes">Набрал голосов: {voteForUser1}</p>
                 <p className="archive-page__username"><b>{nameUser2}</b> сказал:</p>
                 <p className="archive-page__opinion">{answerUser2}</p>
-                <p className="archive-page__votes">Набрал голосов: {voteForUser1}</p>
+                <p className="archive-page__votes">Набрал голосов: {voteForUser2}</p>
                 <Link to="/" className="archive-page__back">На главную</Link>
                 {/* <AddNewDispute />          
                 <ActualDisputesButton />       */}

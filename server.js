@@ -1,38 +1,38 @@
 let dispute = [
     {
-        id: 1,
+        id: 101,
         timeDispute: '1',
-        nameUser1: 'first',
-        nameUser2: 'second',
-        questionDispure: 'what',
-        answerUser1: 'opinion 1',
-        answerUser2: 'opinion 2',
+        nameUser1: 'Ира',
+        nameUser2: 'Вася',
+        questionDispure: 'Кто первый побывал на луне?',
+        answerUser1: 'СССР',
+        answerUser2: 'США',
         voteForUser1: 0,
         voteForUser2: 0,
         timestamp: 1610520530015
     },
     {
-        id: 2,
+        id: 102,
         timeDispute: '1',
-        nameUser1: 'first',
-        nameUser2: 'second',
-        questionDispure: 'what',
-        answerUser1: 'opinion 1',
-        answerUser2: 'opinion 2',
+        nameUser1: 'Даша',
+        nameUser2: 'Петя',
+        questionDispure: 'Какой автомобиль быстрее?',
+        answerUser1: 'Ford',
+        answerUser2: 'Ferarri',
         voteForUser1: 0,
         voteForUser2: 0,
         timestamp: 1610520530015
     },
     {
-        id: 2,
+        id: 103,
         timeDispute: '0',
-        nameUser1: 'first',
-        nameUser2: 'second',
-        questionDispure: 'what',
-        answerUser1: 'opinion 1',
-        answerUser2: 'opinion 2',
-        voteForUser1: 0,
-        voteForUser2: 0,
+        nameUser1: 'Георгий',
+        nameUser2: 'Александр',
+        questionDispure: 'До какой минимальной отметки в этом году опуститься температура в г. Ярославль?',
+        answerUser1: '-25',
+        answerUser2: '-30',
+        voteForUser1: 16,
+        voteForUser2: 23,
         timestamp: 1610520530015
     }
 ];
@@ -77,9 +77,9 @@ app.get('/dispute/:id', function(req, res) {
     if (disputeIndex !== -1) {
         res.json(dispute[disputeIndex]);
     }
-
-    res.send(404);
+    res.status(404).json();
 });
+
 app.post('/dispute',function(req, res) {
     const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2, timestamp} = req.body;
     const disp = {
@@ -113,7 +113,6 @@ app.put('/dispute/:id', function(req, res) {
         } else {
             res.status(404).json();
         }
-        console.log(dispute);
 })
 
 

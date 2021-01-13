@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { addNewId } from "./../../redux/action";
-import ActualDisputesButton from '../../components/ActualDisputesButton/buttons';
-import ArchiveDisputesButton from '../../components/ArchiveDisputesButton/buttons';
+// import ActualDisputesButton from '../../components/ActualDisputesButton/buttons';
+// import ArchiveDisputesButton from '../../components/ArchiveDisputesButton/buttons';
 import './OneCurrentDisputesPage.css';
 
 let date = Date.now();
