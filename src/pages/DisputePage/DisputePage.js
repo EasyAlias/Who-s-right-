@@ -8,12 +8,12 @@ import './DisputePage.css';
 
 
 class DisputePage extends Component{
-
+    
     state = {
         oneDispute: {},
         disabled: false,
     }
-
+    
     componentDidMount() {
         const {id} = this.props.match.params;
         fetch(`http://localhost:5000/dispute/${id}`)
@@ -78,6 +78,12 @@ class DisputePage extends Component{
                             onClick ={this.clickHandlerUser2}
                             disabled={this.state.disabled}
                             >Я за {nameUser2}</button>
+                        </div>
+                        <div>
+                        
+                        {/* <a href={`https://vk.com/share.php?url=http://localhost:3000/dispute_page/${this.state.oneDispute.id}`} target="_blank">
+                            <button>Поделиться ВКонтакте</button>
+                            </a> */} // эта ссылка работает но при открытии с сайта вк не переходит на страницу сайта.
                         </div>
                     </li>
                 </ul>

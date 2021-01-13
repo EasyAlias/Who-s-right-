@@ -6,6 +6,8 @@ import ActualDisputesButton from '../../components/ActualDisputesButton/buttons'
 import ArchiveDisputesButton from '../../components/ArchiveDisputesButton/buttons';
 import './OneCurrentDisputesPage.css';
 
+let date = Date.now();
+
 class OneCurrentDisputesPage extends Component{
     state = {
         oneDispute:{
@@ -17,10 +19,20 @@ class OneCurrentDisputesPage extends Component{
             answerUser2: "",
             voteForUser1: 0,
             voteForUser2: 0,
+            timestamp: 0,
             },
         disabled: false,
     }
 
+    componentDidMount() {
+        let date = Date.now();
+        this.setState({
+            oneDispute:{
+                ...this.state.oneDispute, timestamp: date
+            }
+        })
+    }
+        
     clickHandler = () => {
         this.setState({
             disabled: true,
@@ -31,10 +43,10 @@ class OneCurrentDisputesPage extends Component{
                 'content-type': 'application/json',
             },
             body: JSON.stringify(this.state.oneDispute)
-            }) 
-        } 
-        
-    render(){
+        }) 
+    } 
+    
+    render(){   
         return( 
             <section className="section-disputes">
                 <div className="disputes">

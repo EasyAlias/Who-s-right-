@@ -9,20 +9,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 let id = 1;
 
-//функция для отчета времени спора
+
+// функция для отчета времени спора
 getArchiveDispute = () => {
-    dispute.map((el, idx) => {
-        let numTimeDispute = +(el.timeDispute)
-        new cronJob(`* 1 * * * *`, function(){
-            dispute[idx] = {...el, timeDispute: "0"};
-        }, null, true, 'America/Los_Angeles')
-    })
+    new cronJob(`* 1 * * * *`, function(){
+        dispute.map((el, idx) => {
+            const now = Date.now();
+            let numTimeDispute = (+(el.timeDispute)* 24 * 60 * 60  * 1000) + el.timestamp
+                if (numTimeDispute < now)
+                dispute[idx] = {...el, timeDispute: "0"};
+            })
+    }, null, true, 'America/Los_Angeles')
 }
-
-
 
 app.all('/dispute/', function(req,res,next) {
     res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+    getArchiveDispute();    
     next();
 })
 app.all('/dispute/:id', function(req,res,next) {
@@ -40,7 +42,7 @@ app.get('/dispute/:id', function(req, res) {
     }
 });
 app.post('/dispute',function(req, res) {
-    const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2} = req.body;
+    const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2, timestamp} = req.body;
     const disp = {
         id: id,
         timeDispute,
@@ -50,12 +52,14 @@ app.post('/dispute',function(req, res) {
         answerUser1,
         answerUser2,
         voteForUser1,
-        voteForUser2,      
+        voteForUser2,
+        timestamp    
     }
 
     id += 1;
     
     dispute.push(disp);
+    console.log(dispute)
 });
 app.put('/dispute/:id', function(req, res) {
     const idNumber = parseInt(req.params.id);
@@ -70,6 +74,7 @@ app.put('/dispute/:id', function(req, res) {
         } else {
             res.status(404).json();
         }
+        console.log(dispute);
 })
 
 
@@ -86,6 +91,5 @@ app.put('/dispute/:id', function(req, res) {
 
 
 app.listen(5000, () => {
-    getArchiveDispute();
     console.log(`App are listening at port 5000`)
 });
