@@ -25,22 +25,17 @@ class ArchivePage extends Component{
     render(){
         const{id, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2} = this.state.oneDispute;
         return( 
-            <section className="all-archive">
-                <ul>
-                    <li className="dispute-page_list" key={id}>
-                        <div>
-                            <h3>{questionDispure}</h3>
-                            <h5>{nameUser1}</h5>
-                            <p>{answerUser1}</p>
-                            <p>За {nameUser1} проголосовало: {voteForUser1}</p>
-                            <h5>{nameUser2}</h5>
-                            <p>{answerUser2}</p>
-                            <p>За {nameUser2} проголосовало: {voteForUser2}</p>
-                        </div>
-                    </li>
-                </ul>
-                <AddNewDispute />          
-                <ActualDisputesButton />      
+            <section className="archive-page">
+                <h2 className="archive-page__question">{questionDispure}</h2>
+                <p className="archive-page__username"><b>{nameUser1}</b> сказал:</p>
+                <p className="archive-page__opinion">{answerUser1}</p>
+                <p className="archive-page__votes">Набрал голосов: {voteForUser1}</p>
+                <p className="archive-page__username"><b>{nameUser2}</b> сказал:</p>
+                <p className="archive-page__opinion">{answerUser2}</p>
+                <p className="archive-page__votes">Набрал голосов: {voteForUser1}</p>
+                <Link to="/" className="archive-page__back">На главную</Link>
+                {/* <AddNewDispute />          
+                <ActualDisputesButton />       */}
             </section>
         )
     }

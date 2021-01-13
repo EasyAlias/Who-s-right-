@@ -1,0 +1,38 @@
+.archive-page {
+  padding: 20px 15px;
+}
+
+.archive-page__question {
+  margin: 0 0 30px;
+  color: #3d0b37;
+  text-align: center;
+}
+
+.archive-page__username {
+  margin: 0 0 3px;
+  font-size: 14px;
+}
+
+.archive-page__opinion {
+  margin: 0 0 3px;
+  font-size: 16px;
+}
+
+.archive-page__votes {
+  margin: 0 0 20px;
+  font-size: 16px;
+}
+
+.archive-page__back {
+  display: block;
+  width: 100px;
+  margin: 60px auto;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  background-color: #c0d684;
+  border: 1px solid #3d0b37;
+  color: #3d0b37;
+  font-weight: 600;
+}
