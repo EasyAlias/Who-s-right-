@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import ActualDisputesButton from '../../components/ActualDisputesButton/buttons';
 import AddNewDispute from './../../components/AddNewDispute/buttons';
@@ -60,36 +60,46 @@ class DisputePage extends Component{
     render(){
         const{id, timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2} = this.state.oneDispute;
         return( 
-            <section className="all-disputes">
-                <ul>
-                    <li className="dispute-page_list" key={id}>
-                        <div>
-                            <h1>Time:{timeDispute}</h1>
-                            <h3>{questionDispure}</h3>
-                            <h5>{nameUser1}</h5>
-                            <p>{answerUser1}</p>
-                            <button 
+            <section className="dispute-page">
+                <h2 className="dispute-page__question">{questionDispure}</h2>
+                <p className="dispute-page__username"><b>{nameUser1}</b> говорит:</p>
+                <p className="dispute-page__opinion">{answerUser1}</p>
+                <p className="dispute-page__username"><b>{nameUser2}</b> говорит:</p>
+                <p className="dispute-page__opinion">{answerUser2}</p>
+                {this.state.disabled ?
+                    <div>
+                        <p className="dispute-page__whosright">Вы проголосовали!</p>
+                        <Link to="/" className="dispute-page__back">На главную</Link>
+                    </div>
+                :
+                    <div>
+                        <p className="dispute-page__whosright">Кто прав?</p>
+                        <div className="dispute-page__buttons">
+                            <button
+                            className="dispute-page__button"
                             onClick={this.clickHandlerUser1}
                             disabled={this.state.disabled}
-                            >Я за {nameUser1}</button>
-                            <h5>{nameUser2}</h5>
-                            <p>{answerUser2}</p>
+                            >
+                                {nameUser1}
+                            </button>
                             <button
+                            className="dispute-page__button"
                             onClick ={this.clickHandlerUser2}
                             disabled={this.state.disabled}
-                            >Я за {nameUser2}</button>
+                            >
+                                {nameUser2}
+                            </button>
                         </div>
-                        <div>
+                    </div>
+                }
+                
                         
-                        {/* <a href={`https://vk.com/share.php?url=http://localhost:3000/dispute_page/${this.state.oneDispute.id}`} target="_blank">
-                            <button>Поделиться ВКонтакте</button>
-                            </a> */} // эта ссылка работает но при открытии с сайта вк не переходит на страницу сайта.
-                        </div>
-                    </li>
-                </ul>
-                <AddNewDispute />      
+                {/* <a href={`https://vk.com/share.php?url=http://localhost:3000/dispute_page/${this.state.oneDispute.id}`} target="_blank">
+                    <button>Поделиться ВКонтакте</button>
+                    </a> эта ссылка работает но при открытии с сайта вк не переходит на страницу сайта. */} 
+                {/* <AddNewDispute />      
                 <ActualDisputesButton />      
-                <ArchiveDisputesButton />      
+                <ArchiveDisputesButton />       */}
             </section>
         )
     }
