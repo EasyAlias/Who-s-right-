@@ -59,7 +59,7 @@ app.post('/dispute',function(req, res) {
     id += 1;
     
     dispute.push(disp);
-    console.log(dispute)
+    res.json(disp);
 });
 app.put('/dispute/:id', function(req, res) {
     const idNumber = parseInt(req.params.id);
