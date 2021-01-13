@@ -21,27 +21,38 @@ componentDidMount() {
     }    
     render(){
         return( 
-            <section className="all-disputes">
-                <h1 className="all-disputes__title">Завершенные споры</h1>
-                <ul className="all-disputes">
-                {this.state.dispute.map((el) => {
-                    if (el.timeDispute === "0") {
-                    return (
+            <section className="archive-disputes-page">
+                <h2 className="archive-disputes-page__title">Завершенные споры</h2>
+                <ul className="archive-disputes-page__list">
+                    {this.state.dispute.map((el) => {
+                        if (el.timeDispute === "0") {
+                            return (
+                                <li 
+                                    key={el.id}
+                                    className="archive-disputes-page__item"
+                                >
+                                    <Link 
+                                        to={`/archive/${el.id}`}
+                                        className="archive-disputes-page__link"
+                                    >
+                                        {el.questionDispure}
+                                    </Link>
+                                </li>)
+                        }
+                    })}
+                    <li 
+                        className="archive-disputes-page__item"
+                    >
                         <Link 
-                        to={`/archive/${el.id}`}
-                        className="all-disputes__link">
-                        <li 
-                        key={el.id}
-                        className="all-dispute__one-el">
-                            <div className="all-dispute__text">
-                                <h3>{el.questionDispure}</h3>
-                            </div>
-                        </li>
-                    </Link>)}
-                })}  
+                            to={`/`}
+                            className="archive-disputes-page__link"
+                        >
+                            На главную
+                        </Link>
+                    </li>
                 </ul>
-                <AddNewDispute />
-                <ActualDisputesButton />    
+                {/* <AddNewDispute />
+                <ActualDisputesButton /> */}
             </section>
         )
     }

@@ -1,4 +1,41 @@
-let dispute = [];
+let dispute = [
+    {
+        id: 1,
+        timeDispute: '1',
+        nameUser1: 'first',
+        nameUser2: 'second',
+        questionDispure: 'what',
+        answerUser1: 'opinion 1',
+        answerUser2: 'opinion 2',
+        voteForUser1: 0,
+        voteForUser2: 0,
+        timestamp: 1610520530015
+    },
+    {
+        id: 2,
+        timeDispute: '1',
+        nameUser1: 'first',
+        nameUser2: 'second',
+        questionDispure: 'what',
+        answerUser1: 'opinion 1',
+        answerUser2: 'opinion 2',
+        voteForUser1: 0,
+        voteForUser2: 0,
+        timestamp: 1610520530015
+    },
+    {
+        id: 2,
+        timeDispute: '0',
+        nameUser1: 'first',
+        nameUser2: 'second',
+        questionDispure: 'what',
+        answerUser1: 'opinion 1',
+        answerUser2: 'opinion 2',
+        voteForUser1: 0,
+        voteForUser2: 0,
+        timestamp: 1610520530015
+    }
+];
 
 const express = require('express');
 const app = express();
@@ -40,6 +77,8 @@ app.get('/dispute/:id', function(req, res) {
     if (disputeIndex !== -1) {
         res.json(dispute[disputeIndex]);
     }
+
+    res.send(404);
 });
 app.post('/dispute',function(req, res) {
     const {timeDispute, nameUser1, nameUser2, questionDispure, answerUser1, answerUser2, voteForUser1, voteForUser2, timestamp} = req.body;

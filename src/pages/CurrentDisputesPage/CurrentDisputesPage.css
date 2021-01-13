@@ -1,28 +1,46 @@
-.all-disputes__title{
-    font-family: 'Luckiest Guy', cursive;
-    color: #E9C46A;
-    font-size: 20px;
-    text-align: center;
-    background: #264653; 
-    margin: 0px;
+.all-disputes-page {
+  padding: 20px 15px;
 }
 
-.all-disputes{
-    padding: 0px;
+.all-disputes-page__title {
+  margin: 0 0 30px;
+  color: #3d0b37;
+  text-align: center;
 }
 
-.all-disputes__link{
-    list-style-type: none;
-    text-decoration: none;
-
+.all-disputes-page__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.all-dispute__one-el{
-    color: #7C5E13;
-    border: solid 1px #15514A;
-    background-color: #33C1B1;
+.all-disputes-page__item {
+  margin: 0;
+  width: 200px;
 }
 
-.all-dispute__text{
-    text-align: center;
+.all-disputes-page__item:last-child {
+  margin-top: 30px;
+}
+
+.all-disputes-page__link {
+  width: 100%;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px 15px;
+  text-align: center;
+  display: block;
+  background-color: #f3f9d2;
+  border: 1px solid #3d0b37;
+  color: #3d0b37;
+  margin-bottom: 10px;
+}
+
+.all-disputes-page__item:last-child .all-disputes-page__link {
+  font-size: 12px;
+  background-color: #c0d684;
 }

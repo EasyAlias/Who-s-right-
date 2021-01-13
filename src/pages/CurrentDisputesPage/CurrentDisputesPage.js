@@ -21,26 +21,32 @@ componentDidMount() {
     }    
     render(){
         return( 
-            <section>
-                <h1 className="all-disputes__title">Текущие споры</h1>
-                <ul className="all-disputes">
-                {this.state.dispute.map((el) => {
-                    if (el.timeDispute !== "0") {
-                    return (
-                        <Link to={`/dispute_page/${el.id}`}
-                        className="all-disputes__link">
-                        <li 
-                        key={el.id}
-                        className="all-dispute__one-el">
-                            <div className="all-dispute__text">
-                                <h3>{el.questionDispure}</h3>
-                            </div>
+            <section className="all-disputes-page">
+                <h2 className="all-disputes-page__title">Текущие споры</h2>
+                <ul className="all-disputes-page__list">
+                    {this.state.dispute.map((el) => {
+                        if (el.timeDispute !== "0") {
+                        return (
+                            <li 
+                            key={el.id}
+                            className="all-disputes-page__item">
+                                <Link to={`/dispute_page/${el.id}`}
+                                className="all-disputes-page__link">
+                                    {el.questionDispure}
+                                </Link>
+                            </li>
+                        )}
+                    })}
+                    <li 
+                        className="all-disputes-page__item">
+                            <Link to={`/`}
+                            className="all-disputes-page__link">
+                                На главную
+                            </Link>
                         </li>
-                    </Link>)}
-                })}  
                 </ul>
-                <AddNewDispute />
-                <ArchiveDisputesButton />    
+                {/* <AddNewDispute />
+                <ArchiveDisputesButton />     */}
             </section>
         )
     }
